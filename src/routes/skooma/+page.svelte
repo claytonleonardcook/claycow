@@ -75,6 +75,7 @@
 
 		height: 50%;
 		width: 50%;
+		aspect-ratio: 1 / 1;
 	}
 
 	.tiltGrid div {
