@@ -73,9 +73,8 @@
 		grid-template-rows: 1fr 1fr;
 		position: absolute;
 
-		height: 50%;
-		width: 50%;
-		aspect-ratio: 1 / 1;
+		height: min(50dvh, 50dvw);
+		width: min(50dvh, 50dvw);
 	}
 
 	.tiltGrid div {
