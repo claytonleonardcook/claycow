@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Head, Footer, Navigation } from "@/components/organisms";
+import { formatDate } from "@/utils";
+import { Image } from "astro:assets";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, date, updatedDate, image } = Astro.props;
+console.log(updatedDate);
+---
+
+<html lang="en">
+	<head>
+		<Head title={title} description={description} />
+		<style>
+			article {
+				width: 100%;
+			}
+
+			.date {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				font-style: italic;
+				font-size: x-small;
+			}
+
+			.published {
+				flex-grow: 1;
+			}
+
+			.last-updated {
+				font-weight: bold;
+				color: var(--red);
+			}
+		</style>
+	</head>
+
+	<body data-theme="dark">
+		<Navigation />
+		<main>
+			<article>
+				<div class="hero-image">
+					{
+						image && (
+							<Image
+								src={image}
+								alt={description}
+								width={1020}
+								height={510}
+								loading={"eager"}
+							/>
+						)
+					}
+				</div>
+				<div class="prose">
+					<div class="title">
+						<h1>{title}</h1>
+						<div class="date">
+							<span class="published">
+								Published on {formatDate(date)}
+							</span>
+							{
+								updatedDate && (
+									<span class="last-updated">
+										(Last updated on{" "}
+										{formatDate(updatedDate)})
+									</span>
+								)
+							}
+						</div>
+					</div>
+					<hr />
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

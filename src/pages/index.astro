@@ -1,0 +1,39 @@
+---
+import { Head, Footer, Navigation } from "@/components/organisms";
+import { SITE_TITLE, SITE_DESCRIPTION, PROFILE_IMAGE_LINK } from "@/consts";
+import { Image } from "astro:assets";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<Head title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			body > main > img {
+				width: clamp(200px, 100vw, 300px);
+				border-radius: 0.5rem;
+			}
+		</style>
+	</head>
+	<body data-theme="dark">
+		<Navigation />
+		<main>
+			<Image
+				src={PROFILE_IMAGE_LINK}
+				alt="Profile of Clay, a cow fursona."
+				width={300}
+				height={300}
+				loading={"eager"}
+			/>
+			<h1>🌾 Hello, I'm Clay 🐄</h1>
+			<p>
+				I'm a cow furry who's also a software engineer, specifically in
+				frontend development. Some of my main interests include creating
+				applications, shaders, algorithmic art and discussing current
+				social issues. This website is a place for me to aggregate and
+				fully express my viewpoints through blogging.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>

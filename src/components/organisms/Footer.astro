@@ -1,0 +1,54 @@
+---
+import { BLUESKY_LINK, GITHUB_LINK, SIGNAL_LINK } from "@/consts";
+
+const today = new Date();
+---
+
+<footer>
+	<div class="social-links">
+		<a href={BLUESKY_LINK} target="_blank">
+			<span class="sr-only">Follow on Bluesky</span>
+			<iconify-icon icon={"fa6-brands:bluesky"} width={32} height={32}
+			></iconify-icon>
+		</a>
+		<a href={GITHUB_LINK} target="_blank">
+			<span class="sr-only">Follow on GitHub</span>
+			<iconify-icon icon={"fa6-brands:github"} width={32} height={32}
+			></iconify-icon>
+		</a>
+		<a href={SIGNAL_LINK} target="_blank">
+			<span class="sr-only">Follow on Signal</span>
+			<iconify-icon
+				icon={"fa6-brands:signal-messenger"}
+				width={32}
+				height={32}></iconify-icon>
+		</a>
+	</div>
+	&copy; {today.getFullYear()} ClayCow. All rights reserved.
+</footer>
+
+<style>
+	footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-self: flex-end;
+		gap: 1rem;
+		padding: 1rem 0;
+	}
+
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.social-links a {
+		text-decoration: none;
+		color: var(--text);
+	}
+
+	.social-links a:hover {
+		color: var(--subtext0);
+	}
+</style>

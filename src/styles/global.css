@@ -1,0 +1,154 @@
+:root {}
+
+body[data-theme="light"] {
+	--rosewater: #dc8a78;
+	--flamingo: #dd7878;
+	--pink: #ea76cb;
+	--mauve: #8839ef;
+	--red: #d20f39;
+	--maroon: #e64553;
+	--peach: #fe640b;
+	--yellow: #df8e1d;
+	--green: #40a02b;
+	--teal: #179299;
+	--sky: #04a5e5;
+	--sapphire: #209fb5;
+	--blue: #1e66f5;
+	--lavender: #7287fd;
+	--text: #4c4f69;
+	--subtext1: #5c5f77;
+	--subtext0: #6c6f85;
+	--overlay2: #7c7f93;
+	--overlay1: #8c8fa1;
+	--overlay0: #9ca0b0;
+	--surface2: #acb0be;
+	--surface1: #bcc0cc;
+	--surface0: #ccd0da;
+	--base: #eff1f5;
+	--mantle: #e6e9ef;
+	--crust: #dce0e8;
+}
+
+body[data-theme="dark"] {
+	--rosewater: #f5e0dc;
+	--flamingo: #f2cdcd;
+	--pink: #f5c2e7;
+	--mauve: #cba6f7;
+	--red: #f38ba8;
+	--maroon: #eba0ac;
+	--peach: #fab387;
+	--yellow: #f9e2af;
+	--green: #a6e3a1;
+	--teal: #94e2d5;
+	--sky: #89dceb;
+	--sapphire: #74c7ec;
+	--blue: #89b4fa;
+	--lavender: #b4befe;
+	--text: #cdd6f4;
+	--subtext1: #bac2de;
+	--subtext0: #a6adc8;
+	--overlay2: #9399b2;
+	--overlay1: #7f849c;
+	--overlay0: #6c7086;
+	--surface2: #585b70;
+	--surface1: #45475a;
+	--surface0: #313244;
+	--base: #1e1e2e;
+	--mantle: #181825;
+	--crust: #11111b;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--crust);
+	color: var(--text);
+	min-height: 100vh;
+	margin: 0;
+
+	padding: 0 2rem;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: center;
+	flex-grow: 1;
+	width: clamp(200px, 100%, 1028px);
+}
+
+h2 {
+	color: var(--red);
+}
+
+h3 {
+	color: var(--yellow);
+}
+
+h4 {
+	color: var(--green);
+}
+
+h5 {
+	color: var(--blue);
+}
+
+h6 {
+	color: var(--mauve);
+}
+
+pre {
+	padding: 1rem;
+	border-radius: 0.5rem;
+}
+
+a {
+	color: var(--blue);
+}
+
+blockquote {
+	border-left: solid 0.5rem var(--text);
+	padding: 0.25rem 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+	body {
+		padding: 0 1rem;
+	}
+}
+
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}

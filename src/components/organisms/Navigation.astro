@@ -1,0 +1,48 @@
+---
+import { Link, Button } from "@/components/atoms";
+import { ThemeToggle } from "@/components/molecules";
+import { BLUESKY_LINK } from "@/consts";
+---
+
+<nav>
+    <ol>
+        <li>
+            <Link href="/">
+                <span class="sr-only">Go to the home page</span>
+                🐄
+            </Link>
+        </li>
+        <li>
+            <Link href="/blog">Blog</Link>
+        </li>
+        <li>
+            <Link href={BLUESKY_LINK} target="_blank">
+                <iconify-icon icon={"fa6-brands:bluesky"} width={32} height={32}
+                ></iconify-icon> Bluesky
+            </Link>
+        </li>
+        <li>
+            <ThemeToggle client:load />
+        </li>
+    </ol>
+</nav>
+
+<style>
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav > ol {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    nav > ol > li:first-child {
+        flex-grow: 1;
+        font-size: large;
+    }
+</style>

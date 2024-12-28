@@ -1,0 +1,78 @@
+---
+import { formatDate } from "@/utils";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const {
+    title,
+    description,
+    image = "/blog-placeholder.jpg",
+    date,
+    updatedDate,
+} = Astro.props;
+---
+
+<a
+    class="blog-preivew-card"
+    href={`/blog/${title.toLowerCase().replaceAll(" ", "-")}/`}
+>
+    <Image
+        src={image}
+        alt={description}
+        width={1020}
+        height={510}
+        loading={"eager"}
+    />
+    <h4 class="title">{title}</h4>
+    <p class="description">{description}</p>
+    <p class="date">
+        <span class="published">
+            Published on {formatDate(date)}
+        </span>
+        {
+            updatedDate && (
+                <span class="last-updated">
+                    (Last updated on {formatDate(updatedDate)})
+                </span>
+            )
+        }
+    </p>
+</a>
+
+<style>
+    .blog-preivew-card {
+        display: flex;
+        flex-direction: column;
+        color: var(--text);
+        text-decoration: none;
+    }
+
+    .title {
+        text-decoration: underline;
+        margin-bottom: 0.25rem;
+    }
+
+    .blog-preivew-card > img {
+        width: 100%;
+        border-radius: 0.5rem;
+        object-fit: cover;
+    }
+
+    .date {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: x-small;
+    }
+
+    .published {
+        flex-grow: 1;
+    }
+
+    .last-updated {
+        color: var(--red);
+    }
+</style>

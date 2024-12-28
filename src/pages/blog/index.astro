@@ -1,0 +1,57 @@
+---
+import {
+	Head,
+	Footer,
+	Navigation,
+	BlogPreviewCard,
+} from "@/components/organisms";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+	.filter((post) => Boolean(post.data.isPublished))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<Head title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main > section > ul {
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+				list-style: none;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body data-theme="dark">
+		<Navigation />
+		<main>
+			<h1>Blog</h1>
+			<section>
+				{
+					posts.length !== 0 && (
+						<ul>
+							{posts.map((post) => (
+								<li>
+									<BlogPreviewCard
+										title={post.data.title}
+										description={post.data.description}
+										image={post.data.image}
+										date={post.data.date}
+										updatedDate={post.data.updatedDate}
+									/>
+								</li>
+							))}
+						</ul>
+					)
+				}
+				{posts.length === 0 && <h2>There are no posts yet! 😢</h2>}
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
