@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { Head, Footer, Navigation } from "@/components/organisms";
 import { formatDate } from "@/utils";
 import { Image } from "astro:assets";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -77,5 +78,6 @@ console.log(updatedDate);
 			</article>
 		</main>
 		<Footer />
+		<SpeedInsights />
 	</body>
 </html>

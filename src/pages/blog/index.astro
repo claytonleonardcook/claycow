@@ -7,6 +7,7 @@ import {
 } from "@/components/organisms";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 import { getCollection } from "astro:content";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 const posts = (await getCollection("blog"))
 	.filter((post) => Boolean(post.data.isPublished))
@@ -53,5 +54,6 @@ const posts = (await getCollection("blog"))
 			</section>
 		</main>
 		<Footer />
+		<SpeedInsights />
 	</body>
 </html>

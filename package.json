@@ -15,10 +15,9 @@
     "@astrojs/svelte": "^7.0.2",
     "@iconify-json/fa6-brands": "^1.2.5",
     "@iconify-json/fa6-solid": "^1.2.3",
+    "@vercel/speed-insights": "^1.1.0",
     "astro": "^5.1.1",
     "svelte": "^5.16.0",
     "typescript": "^5.7.2"
-  },
-  "devDependencies": {
   }
 }
