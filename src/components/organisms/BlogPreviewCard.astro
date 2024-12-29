@@ -1,5 +1,6 @@
 ---
 import { formatDate } from "@/utils";
+import formatBlogTitleUrl from "@/utils/formatBlogTitleUrl";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
@@ -14,10 +15,7 @@ const {
 } = Astro.props;
 ---
 
-<a
-    class="blog-preivew-card"
-    href={`/blog/${title.toLowerCase().replaceAll(" ", "-")}/`}
->
+<a class="blog-preivew-card" href={`/blog/${formatBlogTitleUrl(title)}/`}>
     <Image
         src={image}
         alt={description}

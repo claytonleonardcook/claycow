@@ -1,6 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Head, Footer, Navigation } from "@/components/organisms";
+import {
+	Head,
+	Footer,
+	Navigation,
+	BlueskyComments,
+} from "@/components/organisms";
 import { formatDate } from "@/utils";
 import { Image } from "astro:assets";
 import SpeedInsights from "@vercel/speed-insights/astro";
@@ -8,7 +13,6 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, date, updatedDate, image } = Astro.props;
-console.log(updatedDate);
 ---
 
 <html lang="en">
@@ -16,7 +20,10 @@ console.log(updatedDate);
 		<Head title={title} description={description} />
 		<style>
 			article {
+				display: flex;
+				flex-direction: column;
 				width: 100%;
+				gap: 2rem;
 			}
 
 			.date {
@@ -75,6 +82,7 @@ console.log(updatedDate);
 					<hr />
 					<slot />
 				</div>
+				<BlueskyComments client:load blogTitle={title} />
 			</article>
 		</main>
 		<Footer />
