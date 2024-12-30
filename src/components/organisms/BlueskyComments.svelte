@@ -15,8 +15,12 @@
     <h2>Comments 🗣️</h2>
 
     {#await comments}
-        <p>No comments just yet 🐄</p>
+        <p>Loading comments... ⏰</p>
     {:then comments}
+        {#if !comments}
+            <p>No comments just yet 🐄</p>
+        {/if}
+
         {#each comments as comment}
             <article
                 class="comment"
@@ -80,6 +84,14 @@
                 </footer>
             </article>
         {/each}
+    {:catch}
+        <div>
+            <p>There was an error getting the comments! ⚠️</p>
+            <p>
+                Please <a href="mailto:me@claycow.com">reach out</a> if this persists.
+                ❤️
+            </p>
+        </div>
     {/await}
 </section>
 
