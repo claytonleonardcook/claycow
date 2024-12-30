@@ -107,9 +107,51 @@ a {
 	color: var(--blue);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+hr,
+img,
+figure,
+iframe,
+ul {
+	margin: 1rem 0;
+}
+
 blockquote {
 	border-left: solid 0.5rem var(--text);
 	padding: 0.25rem 1rem;
+}
+
+img {
+	border-radius: 0.5rem;
+	width: 100%;
+}
+
+iframe {
+	border-radius: 0.5rem;
+	border: none;
+}
+
+figure {
+	margin: 0;
+}
+
+figure>img {
+	margin-bottom: 0;
+}
+
+figure>figcaption {
+	color: var(--subtext0);
+	font-size: small;
+}
+
+figure>figcaption>p {
+	margin-top: 0;
 }
 
 @media only screen and (max-width: 600px) {
