@@ -19,6 +19,10 @@ const posts = (await getCollection("blog"))
 	<head>
 		<Head title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			main > section {
+				width: 100%;
+			}
+
 			main > section > ul {
 				display: flex;
 				flex-direction: column;

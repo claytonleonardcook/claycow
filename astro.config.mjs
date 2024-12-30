@@ -10,6 +10,6 @@ export default defineConfig({
     site: 'https://example.com',
     integrations: [mdx(), sitemap(), svelte()],
     image: {
-        domains: ["cdn.bsky.app"],
+        domains: ["cdn.bsky.app", "i.imgur.com"],
     }
 });

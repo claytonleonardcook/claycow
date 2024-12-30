@@ -26,6 +26,11 @@ const { title, description, date, updatedDate, image } = Astro.props;
 				gap: 2rem;
 			}
 
+			.hero-image {
+				object-fit: cover;
+				border-radius: 0.5rem;
+			}
+
 			.date {
 				display: flex;
 				flex-wrap: wrap;
@@ -49,19 +54,18 @@ const { title, description, date, updatedDate, image } = Astro.props;
 		<Navigation />
 		<main>
 			<article>
-				<div class="hero-image">
-					{
-						image && (
-							<Image
-								src={image}
-								alt={description}
-								width={1020}
-								height={510}
-								loading={"eager"}
-							/>
-						)
-					}
-				</div>
+				{
+					image && (
+						<Image
+							class="hero-image"
+							src={image.src}
+							alt={image.alt}
+							width={1020}
+							height={510}
+							loading={"lazy"}
+						/>
+					)
+				}
 				<div class="prose">
 					<div class="title">
 						<h1>{title}</h1>

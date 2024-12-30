@@ -9,7 +9,10 @@ type Props = CollectionEntry<"blog">["data"];
 const {
     title,
     description,
-    image = "/blog-placeholder.jpg",
+    image = {
+        src: "/blog-placeholder.jpg",
+        alt: "A teal, gradient background",
+    },
     date,
     updatedDate,
 } = Astro.props;
@@ -17,11 +20,12 @@ const {
 
 <a class="blog-preivew-card" href={`/blog/${formatBlogTitleUrl(title)}/`}>
     <Image
-        src={image}
-        alt={description}
+        class={"hero-image"}
+        src={image.src}
+        alt={image.alt}
         width={1020}
         height={510}
-        loading={"eager"}
+        loading={"lazy"}
     />
     <h4 class="title">{title}</h4>
     <p class="description">{description}</p>
@@ -45,6 +49,10 @@ const {
         flex-direction: column;
         color: var(--text);
         text-decoration: none;
+    }
+
+    .hero-image {
+        object-fit: cover;
     }
 
     .title {
