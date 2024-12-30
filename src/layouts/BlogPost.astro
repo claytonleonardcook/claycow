@@ -9,6 +9,7 @@ import {
 import { formatDate } from "@/utils";
 import { Image } from "astro:assets";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -92,5 +93,6 @@ const { title, description, date, updatedDate, image } = Astro.props;
 		</main>
 		<Footer />
 		<SpeedInsights />
+		<Analytics />
 	</body>
 </html>

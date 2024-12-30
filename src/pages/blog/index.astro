@@ -8,6 +8,7 @@ import {
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 import { getCollection } from "astro:content";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 
 const posts = (await getCollection("blog"))
 	.filter((post) => Boolean(post.data.isPublished))
@@ -59,5 +60,6 @@ const posts = (await getCollection("blog"))
 		</main>
 		<Footer />
 		<SpeedInsights />
+		<Analytics />
 	</body>
 </html>

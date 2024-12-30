@@ -3,6 +3,7 @@ import { Head, Footer, Navigation } from "@/components/organisms";
 import { SITE_TITLE, SITE_DESCRIPTION, PROFILE_IMAGE_LINK } from "@/consts";
 import { Image } from "astro:assets";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
@@ -37,5 +38,6 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 		</main>
 		<Footer />
 		<SpeedInsights />
+		<Analytics />
 	</body>
 </html>
