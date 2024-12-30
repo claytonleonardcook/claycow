@@ -58,24 +58,21 @@
                         <p class="likes">
                             <iconify-icon
                                 icon={"fa6-solid:heart"}
-                                width={24}
-                                height={24}
+                                height={"1rem"}
                             ></iconify-icon>
                             {comment.likeCount} Likes
                         </p>
                         <p class="replies">
                             <iconify-icon
                                 icon={"fa6-solid:comment"}
-                                width={24}
-                                height={24}
+                                height={"1rem"}
                             ></iconify-icon>
                             {comment.replyCount} Replies
                         </p>
                         <p class="replies">
                             <iconify-icon
                                 icon={"fa6-solid:repeat"}
-                                width={24}
-                                height={24}
+                                height={"1rem"}
                             ></iconify-icon>
                             {comment.quoteCount} Quotes
                         </p>

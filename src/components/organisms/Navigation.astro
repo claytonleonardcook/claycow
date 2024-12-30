@@ -17,7 +17,7 @@ import { BLUESKY_LINK } from "@/consts";
         </li>
         <li>
             <Link href={BLUESKY_LINK} target="_blank">
-                <iconify-icon icon={"fa6-brands:bluesky"} width={32} height={32}
+                <iconify-icon icon={"fa6-brands:bluesky"} height={"1rem"}
                 ></iconify-icon> Bluesky
             </Link>
         </li>
@@ -36,9 +36,17 @@ import { BLUESKY_LINK } from "@/consts";
     nav > ol {
         list-style: none;
         display: flex;
+        align-items: center;
         flex-direction: row;
         gap: 1rem;
         padding: 0;
+    }
+
+    nav > ol > li > a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 1ch;
     }
 
     nav > ol > li:first-child {
