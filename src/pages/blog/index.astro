@@ -11,7 +11,7 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 import Analytics from "@vercel/analytics/astro";
 
 const posts = (await getCollection("blog"))
-	.filter((post) => Boolean(post.data.isPublished))
+	.filter((post) => import.meta.env.DEV || Boolean(post.data.isPublished))
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
