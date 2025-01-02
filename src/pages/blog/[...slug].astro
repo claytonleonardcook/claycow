@@ -6,7 +6,11 @@ import { render } from "astro:content";
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
 	return posts
-		.filter((post) => Boolean(post.data.isPublished))
+		.filter(
+			(post) =>
+				import.meta.env.ENVIRONMENT === "preview" ||
+				Boolean(post.data.isPublished),
+		)
 		.map((post) => ({
 			params: {
 				slug: post.data.title.toLowerCase().replaceAll(" ", "-"),
