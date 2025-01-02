@@ -17,10 +17,6 @@
     {#await comments}
         <p>Loading comments... ⏰</p>
     {:then comments}
-        {#if !comments}
-            <p>No comments just yet 🐄</p>
-        {/if}
-
         {#each comments as comment}
             <article
                 class="comment"
@@ -83,6 +79,8 @@
                     </a>
                 </footer>
             </article>
+        {:else}
+            <p>No comments just yet 🐄</p>
         {/each}
     {:catch}
         <div>
