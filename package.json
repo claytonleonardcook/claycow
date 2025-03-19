@@ -21,5 +21,9 @@
     "astro": "^5.1.1",
     "svelte": "^5.16.0",
     "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "exiftool-vendored": "^29.2.0",
+    "sharp": "^0.33.5"
   }
 }
