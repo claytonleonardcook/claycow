@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Head, Footer, Navigation } from "@/components/organisms";
+import { Image } from "astro:assets";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
+
+type Props = CollectionEntry<"gallery">["data"];
+
+const { title, alt, image, width, height } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <Head title={title} description={alt} />
+        <style>
+            article {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+
+            h1 {
+                margin-bottom: 0;
+            }
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        </style>
+    </head>
+
+    <body data-theme="dark">
+        <Navigation />
+        <main>
+            <article>
+                <h1>{title}</h1>
+                <a href={image.src}>
+                    <Image
+                        src={image}
+                        alt={alt}
+                        width={width}
+                        height={height}
+                    />
+                </a>
+                <p>{alt}</p>
+            </article>
+            <Footer />
+            <SpeedInsights />
+            <Analytics />
+        </main>
+    </body>
+</html>
