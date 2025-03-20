@@ -12,7 +12,16 @@ const blueskyAvatar = await getBlueskyAvatar();
 <!doctype html>
 <html lang="en">
 	<head>
-		<Head title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<Head
+			title={SITE_TITLE}
+			description={SITE_DESCRIPTION}
+			image={{
+				src: blueskyAvatar,
+				width: 300,
+				height: 300,
+				format: "webp",
+			}}
+		/>
 		<style>
 			body > main > img {
 				width: clamp(200px, 100vw, 300px);
