@@ -9,6 +9,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 import { getCollection } from "astro:content";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Analytics from "@vercel/analytics/astro";
+import GalleryPreviewCard from "@/components/organisms/GalleryPreviewCard.astro";
 
 const gallery = await getCollection("gallery");
 ---
@@ -23,11 +24,16 @@ const gallery = await getCollection("gallery");
 			}
 
 			main > section > ul {
-				display: flex;
-				flex-direction: column;
-				gap: 2rem;
 				list-style: none;
 				padding: 0;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+			}
+
+			main > section > ul > li {
+				display: flex;
+				align-items: center;
 			}
 		</style>
 	</head>
@@ -39,8 +45,10 @@ const gallery = await getCollection("gallery");
 				{
 					gallery.length !== 0 && (
 						<ul>
-							{gallery.map((image) => (
-								<li>{image}</li>
+							{gallery.map(({ data }) => (
+								<li>
+									<GalleryPreviewCard {...data} />
+								</li>
 							))}
 						</ul>
 					)
