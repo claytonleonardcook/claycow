@@ -1,7 +1,5 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import BlogPost from "@/layouts/BlogPost.astro";
-import { render } from "astro:content";
 import GalleryPost from "@/layouts/GalleryPost.astro";
 
 export async function getStaticPaths() {
@@ -16,7 +14,6 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"gallery">;
 
 const post = Astro.props;
-const { Content } = await render(post);
 ---
 
 <GalleryPost {...post.data} />
