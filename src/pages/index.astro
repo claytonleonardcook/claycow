@@ -1,9 +1,12 @@
 ---
 import { Head, Footer, Navigation } from "@/components/organisms";
-import { SITE_TITLE, SITE_DESCRIPTION, PROFILE_IMAGE_LINK } from "@/consts";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 import { Image } from "astro:assets";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Analytics from "@vercel/analytics/astro";
+import getBlueskyAvatar from "@/utils/getBlueskyAvatar";
+
+const blueskyAvatar = await getBlueskyAvatar();
 ---
 
 <!doctype html>
@@ -20,11 +23,12 @@ import Analytics from "@vercel/analytics/astro";
 		<Navigation />
 		<main>
 			<Image
-				src={PROFILE_IMAGE_LINK}
+				src={blueskyAvatar}
 				alt="Profile of Clay, a cow fursona."
 				width={300}
 				height={300}
-				loading={"eager"}
+				quality={"low"}
+				loading={"lazy"}
 			/>
 			<h1>🌾 Hello, I'm Clay 🐄</h1>
 			<p>
