@@ -7,7 +7,7 @@ import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://claycow.com',
+    site: import.meta.env.ENVIRONMENT === 'production' ? 'https://claycow.com' : 'https://preview.claycow.com',
     integrations: [mdx(), sitemap(), svelte()],
     image: {
         domains: ["cdn.bsky.app", "i.imgur.com"],
