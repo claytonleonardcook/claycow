@@ -1,0 +1,45 @@
+---
+import { formatDate } from "@/utils";
+import formatBlogTitleUrl from "@/utils/formatBlogTitleUrl";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"gallery">["data"];
+
+const { title, alt, image, width, height } = Astro.props;
+---
+
+<a
+    class="gallery-preview-card"
+    href={`/gallery/${formatBlogTitleUrl(title)}/`}
+    title={title}
+>
+    <Image
+        src={image}
+        alt={alt}
+        loading={"lazy"}
+        format={"webp"}
+        quality={"low"}
+    />
+</a>
+
+<style>
+    a {
+        display: inline-block;
+    }
+
+    a:hover > img {
+        outline-color: var(--blue);
+    }
+
+    img {
+        height: auto;
+        object-fit: contain;
+        margin: 0;
+        transition: outline-color 200ms;
+        outline-color: #0000;
+        outline-offset: 2px;
+        outline-style: solid;
+        outline-width: 4px;
+    }
+</style>
