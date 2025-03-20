@@ -4,19 +4,19 @@ import { exiftool } from "exiftool-vendored";
 
 function image(fileName: string): Loader {
     return {
-        name: 'png',
+        name: 'webp',
         load: async ({ store, parseData, generateDigest }) => {
             store.keys().forEach((id) => store.delete(id));
 
-            const directory = fs.readdirSync(fileName).filter((file) => file.endsWith(".png"));
+            const directory = fs.readdirSync(fileName).filter((file) => file.endsWith(".webp"));
 
             const images = await Promise.all(
                 directory.map(async (path) => {
                     const metadata = await exiftool.read(`${fileName}/${path}`);
 
-                    const title = metadata.Title;
-                    const artist = metadata.Artist;
-                    const alt = metadata.Description || metadata.ImageDescription;
+                    const title = metadata.Title ?? "";
+                    const artist = metadata.Artist ?? "";
+                    const alt = metadata.Description ?? metadata.ImageDescription ?? "";
                     const width = metadata.ImageWidth;
                     const height = metadata.ImageHeight;
 
